@@ -1,0 +1,55 @@
+import React,{Component} from 'react';
+import BrowserRouter from 'react-router-dom';
+import styles from './menu.style.css';
+import Card from './../card/cardControl.component';
+import {connect} from 'react-redux';
+import Search from '../search/seach.component';
+
+class Menu extends Component{
+    constructor(props){
+        super(props);
+        this.addCard = this.addCard.bind(this);
+        this.renderCards = this.renderCards.bind(this);
+        this.state = {
+
+        };
+    };
+
+    addCard(name, img){
+        this.props.dispatch({
+            type: 'ADD_CARD',
+            universe: this.props.universe,
+            name: name,
+            img: img
+        });
+    }
+
+    renderCards(){
+        let i;
+        const source = this.props[this.props.universe];
+        const len = source.length;
+        const arr = [];
+        for (i=0;i<len;i++){
+            arr.push(<Card addCard={this.addCard} num={source[i]['num']} name={source[i]['name']} img={source[i]['image']} key={i}/>);
+        }
+        return arr;
+    }
+    
+    render(){
+        return (
+            <div className={styles.menu}>
+                <Search></Search>
+                {this.renderCards()}
+            </div>
+        );
+    };
+};
+
+const mapDispatchToProps = function(state){
+    return{
+        'dc': state['storage']['dc'],
+        'marvel': state['storage']['marvel'],  
+    };
+};
+
+export default connect(mapDispatchToProps)(Menu);
