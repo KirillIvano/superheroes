@@ -36,7 +36,7 @@ export default (state = {}, action) => {
                 }
             );
             if (!flag){
-                source.push({name: action.name, img: action.img, num: 0});
+                source.push({name: action.name, image: action.image, num: 0});
             }
             return {
                 storage:{

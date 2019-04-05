@@ -20,7 +20,7 @@ class Menu extends Component{
             type: 'ADD_CARD',
             universe: this.props.universe,
             name: name,
-            img: img
+            image: img
         });
     }
 
