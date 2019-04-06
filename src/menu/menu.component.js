@@ -30,7 +30,9 @@ class Menu extends Component{
         const len = source.length;
         const arr = [];
         for (i=0;i<len;i++){
-            arr.push(<Card addCard={this.addCard} num={source[i]['num']} name={source[i]['name']} img={source[i]['image']} key={i}/>);
+            if(~source[i]['name'].indexOf(this.props.filter)){
+                arr.push(<Card addCard={this.addCard} num={source[i]['num']} name={source[i]['name']} img={source[i]['image']} key={i}/>);
+            }
         }
         return arr;
     }
@@ -49,6 +51,7 @@ const mapDispatchToProps = function(state){
     return{
         'dc': state['storage']['dc'],
         'marvel': state['storage']['marvel'],  
+        'filter': state['storage']['filter']
     };
 };
 

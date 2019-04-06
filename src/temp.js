@@ -90,7 +90,8 @@ const database = {
         },
       ],
       "marvel":[]
-    }
+    },
+    "filter": ""
 };
 
 export default database;

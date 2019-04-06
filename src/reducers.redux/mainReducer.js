@@ -1,8 +1,13 @@
 export default (state = {}, action) => {
     let source, flag;
     switch (action.type) {
-        case 'GET_SEATS':
-            return state;
+        case 'UPDATE_SEARCH':
+            return {
+                storage:{
+                    ...state['storage'],
+                    filter: action.text
+                }
+            };
         case 'DECREASE':
             source = state.storage['selected'][action.universe];
             source.forEach(function(item, ind){
