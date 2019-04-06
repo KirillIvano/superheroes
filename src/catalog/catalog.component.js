@@ -23,7 +23,7 @@ class Catalog extends Component{
     
     constructCards(){
         let i;
-        const source = this.props.selected[this.props.universe];
+        const source = this.props.selected;
         const len = source.length;
         const arr = [];
         for (i=0;i<len;i++){

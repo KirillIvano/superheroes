@@ -29,10 +29,15 @@ class Menu extends Component{
         const source = this.props[this.props.universe];
         const len = source.length;
         const arr = [];
+        let flag = false;
         for (i=0;i<len;i++){
             if(~source[i]['name'].indexOf(this.props.filter)){
                 arr.push(<Card addCard={this.addCard} num={source[i]['num']} name={source[i]['name']} img={source[i]['image']} key={i}/>);
+                flag = true;
             }
+        }
+        if (!flag){
+            return <p className={styles.not_found}>Ничего не найдено</p>; 
         }
         return arr;
     }

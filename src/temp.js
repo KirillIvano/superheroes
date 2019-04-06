@@ -68,8 +68,7 @@ const database = {
         "image": "http://www.ramrus.ru/pic/marvel/thor.jpg"
       }
     ],
-    "selected":{
-      "dc":[
+    "selected":[
         {
           "name": "Бэтмен",
           "image": "http://www.ramrus.ru/pic/dc/batman.jpg",
@@ -89,8 +88,6 @@ const database = {
           "index": 0
         },
       ],
-      "marvel":[]
-    },
     "filter": ""
 };
 

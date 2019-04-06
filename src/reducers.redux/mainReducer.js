@@ -9,7 +9,7 @@ export default (state = {}, action) => {
                 }
             };
         case 'DECREASE':
-            source = state.storage['selected'][action.universe];
+            source = state.storage['selected'];
             source.forEach(function(item, ind){
                 if(action.index===ind){
                     if (!source[ind]['num']){
@@ -23,15 +23,14 @@ export default (state = {}, action) => {
             return {
                 storage:{
                     ...state['storage'],
-                    selected:{
-                        ...state['storage']['seleted'],
-                        [action.universe]: source
-                    }
+                    selected:[
+                        ...source
+                    ]
                 }
             };
             break;
         case 'ADD_CARD':
-            source = state.storage['selected'][action.universe];
+            source = state.storage['selected'];
             flag = 0;
             source.forEach(function(item, ind){
                     if(action.name===item.name){
@@ -46,10 +45,9 @@ export default (state = {}, action) => {
             return {
                 storage:{
                     ...state.storage,
-                    selected:{
-                        ...state.storage['selected'],
-                        [action.universe]: source
-                    }
+                    selected:[
+                        ...source
+                    ]
                 }
             };
         default:
