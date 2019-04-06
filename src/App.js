@@ -9,12 +9,12 @@ class App extends Component {
     return (
       <BrowserRouter>
       <Fragment>
-        <Catalog universe="dc"/>
+        <Catalog/>
         <Switch>
-          <Route path="/(|dc)" component={()=><Menu universe="dc"/>}/>
-          <Route exact path="/marvel" component={()=><Menu universe="marvel"/>}/>
+          <Route path="/(|dc)" component={()=><Fragment><Menu universe="dc"/><Universe universe="dc"/></Fragment>}/>
+          <Route exact path="/marvel" component={()=><Fragment><Menu universe="marvel"/><Universe universe="marvel"/></Fragment>}/>
         </Switch>
-        <Universe/>
+
       </Fragment>
       </BrowserRouter>
     );

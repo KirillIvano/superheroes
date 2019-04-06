@@ -5,13 +5,19 @@ import Card from './../card/cardControl.component';
 import {connect} from 'react-redux';
 import Search from '../search/seach.component';
 
+// const clearSearch = function(){
+//     const search = document.getElementById('search');
+//     return function(){
+//         return search.value = '';
+//     };
+// }();
+
 class Menu extends Component{
     constructor(props){
         super(props);
         this.addCard = this.addCard.bind(this);
         this.renderCards = this.renderCards.bind(this);
         this.state = {
-
         };
     };
 
@@ -41,6 +47,12 @@ class Menu extends Component{
         }
         return arr;
     }
+
+    componentWillUnmount(){
+        this.props.dispatch({
+            type: 'CLEAR_SEARCH'
+        });
+    };
     
     render(){
         return (

@@ -20,7 +20,7 @@ class Search extends Component{
         return (
             <div className={styles.search_container}>
                 <div className={styles.search_cover}>  
-                    <input onChange={this.handleChange} className={styles.search} placeholder="Введите имя">
+                    <input id="search" onChange={this.handleChange} className={styles.search} placeholder="Введите имя">
                     </input>
                 </div>
             </div>

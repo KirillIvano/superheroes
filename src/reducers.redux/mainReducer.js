@@ -8,6 +8,14 @@ export default (state = {}, action) => {
                     filter: action.text
                 }
             };
+
+        case 'CLEAR_SEARCH':
+            return {
+                storage: {
+                    ...state['storage'],
+                    filter: ''
+                }
+            };
         case 'DECREASE':
             source = state.storage['selected'];
             source.forEach(function(item, ind){
